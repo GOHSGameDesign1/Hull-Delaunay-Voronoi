@@ -170,6 +170,12 @@ namespace HullDelaunayVoronoi
                 }
             }
 
+            GL.Color(Color.cyan);
+            foreach (DelaunayCell<Vertex2> cell in delaunay.Cells)
+            {
+                DrawCellVectors(cell);
+            }
+
             GL.End();
 
             // DRAW VORONOI LINES
@@ -248,6 +254,28 @@ namespace HullDelaunayVoronoi
             GL.End();
 
             GL.PopMatrix();
+        }
+
+        private void DrawCellVectors(DelaunayCell<Vertex2> cell)
+        {
+            Vertex2 p1 = cell.Simplex.Vertices[0];
+            Vertex2 p2 = cell.Simplex.Vertices[1];
+            Vertex2 p3 = cell.Simplex.Vertices[2];
+
+            // Midpoints of simplex lines
+            Vertex2 m1 = new Vertex2((p1.X + p2.X) / 2f, (p1.Y + p2.Y) / 2f);
+            Vertex2 m2 = new Vertex2((p1.X + p3.X) / 2f, (p1.Y + p3.Y) / 2f);
+            Vertex2 m3 = new Vertex2((p2.X + p3.X) / 2f, (p2.Y + p3.Y) / 2f);
+
+            Vertex2 circumCenter = cell.CircumCenter;
+
+            Vector2 v1 = new Vector2(m1.X - circumCenter.X, m1.Y - circumCenter.Y);
+            Vector2 v2 = new Vector2(m2.X - circumCenter.X, m2.Y - circumCenter.Y);
+            Vector2 v3 = new Vector2(m3.X - circumCenter.X, m3.Y - circumCenter.Y);
+
+            DrawLine(m1, circumCenter);
+            DrawLine(m2, circumCenter);
+            DrawLine(m3, circumCenter);
         }
 
         private void DrawSimplexNormalLines(Simplex<Vertex2> s)
