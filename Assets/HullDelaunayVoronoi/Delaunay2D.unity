@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb8b24b935e0a540bc8a4bc135af4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfVertices: 500
+  NumberOfVertices: 10
   size: 10
   seed: 0
 --- !u!20 &1266046831
