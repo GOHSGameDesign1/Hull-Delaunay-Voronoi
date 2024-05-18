@@ -3,44 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\delaunay\\idelaunaytriangulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\delaunay\\idelaunaytriangulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\bettervoronoiexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\bettervoronoiexample.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\primitives\\vertex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\primitives\\vertex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\voronoi\\ivoronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\voronoi\\ivoronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\exampledelaunay2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\exampledelaunay2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\delaunay\\delaunaytriangulation2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\delaunay\\delaunaytriangulation2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\delaunay\\delaunaytriangulation2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\examplevoronoi2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\examplevoronoi2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\exampledelaunay2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\exampledelaunay2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\primitives\\simplex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\primitives\\simplex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\delaunay\\delaunaycell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\delaunay\\delaunaycell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\delaunay\\delaunaycell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|c:\\users\\leonc\\documents\\github\\hull-delaunay-voronoi\\assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\examplevoronoi2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\examplevoronoi2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\primitives\\vertex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\primitives\\vertex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\primitives\\simplex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\primitives\\simplex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\voronoi\\ivoronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\voronoi\\ivoronoimesh.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8188FEE-ADC6-2859-9CC2-6CC99A8EC115}|Assembly-CSharp.csproj|solutionrelative:assets\\hulldelaunayvoronoi\\scripts\\voronoi\\voronoimesh2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,50 +50,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IDelaunayTriangulation.cs",
-              "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\IDelaunayTriangulation.cs",
-              "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\IDelaunayTriangulation.cs",
-              "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\IDelaunayTriangulation.cs",
-              "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\IDelaunayTriangulation.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAawBcAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:49:34.291Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "VoronoiMesh.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh.cs",
               "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh.cs",
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAIwDIAAAANAAAA",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAuwDIAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-18T03:48:09.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "IVoronoiMesh.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\IVoronoiMesh.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\IVoronoiMesh.cs",
               "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\IVoronoiMesh.cs",
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\IVoronoiMesh.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAIAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:47:08.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T03:47:08.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "VoronoiMesh2.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh2.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh2.cs",
@@ -101,21 +87,19 @@
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Voronoi\\VoronoiMesh2.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:46:30.029Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T03:46:30.029Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "Vertex.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Primitives\\Vertex.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Primitives\\Vertex.cs",
               "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Primitives\\Vertex.cs",
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Primitives\\Vertex.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAYwAAAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:45:05.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T03:45:05.725Z"
             },
             {
               "$type": "Document",
@@ -127,12 +111,11 @@
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Primitives\\Simplex.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAAABcAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:43:57.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T03:43:57.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "DelaunayTriangulation2.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\DelaunayTriangulation2.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\DelaunayTriangulation2.cs",
@@ -145,42 +128,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "BetterVoronoiExample.cs",
+              "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\BetterVoronoiExample.cs",
+              "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\BetterVoronoiExample.cs",
+              "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\BetterVoronoiExample.cs",
+              "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\BetterVoronoiExample.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAowD8AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T06:49:39.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ExampleDelaunay2D.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\ExampleDelaunay2D.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\ExampleDelaunay2D.cs",
               "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\ExampleDelaunay2D.cs",
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\ExampleDelaunay2D.cs",
-              "ViewState": "AQIAAFYAAAAAAAAAAAAwwGEAAAAAAAAA",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAswHkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:38:36.25Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T03:38:36.25Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "DelaunayCell.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\DelaunayCell.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\DelaunayCell.cs",
               "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\DelaunayCell.cs",
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\Delaunay\\DelaunayCell.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T03:36:07.401Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T03:36:07.401Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ExampleVoronoi2D.cs",
               "DocumentMoniker": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\ExampleVoronoi2D.cs",
               "RelativeDocumentMoniker": "Assets\\HullDelaunayVoronoi\\Scripts\\ExampleVoronoi2D.cs",
               "ToolTip": "C:\\Users\\leonc\\Documents\\GitHub\\Hull-Delaunay-Voronoi\\Assets\\HullDelaunayVoronoi\\Scripts\\ExampleVoronoi2D.cs",
               "RelativeToolTip": "Assets\\HullDelaunayVoronoi\\Scripts\\ExampleVoronoi2D.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAA1wEcAAAA3AAAA",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAwwJEAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-18T02:33:16.812Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-18T02:33:16.812Z"
             }
           ]
         }

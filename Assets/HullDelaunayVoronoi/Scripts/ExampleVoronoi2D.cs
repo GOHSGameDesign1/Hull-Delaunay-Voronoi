@@ -65,7 +65,7 @@ namespace HullDelaunayVoronoi
 
         private void Update()
         {
-
+            
             foreach (Vertex2 v in vertices)
             {
                 v.X = size * Random.Range(-1.0f, 1.0f);

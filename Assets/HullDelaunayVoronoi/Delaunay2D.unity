@@ -150,11 +150,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1266046828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb8b24b935e0a540bc8a4bc135af4b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 95ffc0b7490fe164e8aa6682de7637c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfVertices: 10
-  size: 10
+  NumberOfVertices: 100
+  size: 20
   seed: 0
 --- !u!20 &1266046831
 Camera:
