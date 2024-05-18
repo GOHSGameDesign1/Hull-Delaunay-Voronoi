@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using HullDelaunayVoronoi.Voronoi;
 using HullDelaunayVoronoi.Delaunay;
 using HullDelaunayVoronoi.Primitives;
+using System.Collections;
 
 namespace HullDelaunayVoronoi
 {
@@ -21,12 +22,13 @@ namespace HullDelaunayVoronoi
 
         private Material lineMaterial;
 
+        List<Vertex2> vertices = new List<Vertex2>();
+
         private void Start()
         {
 
             lineMaterial = new Material(Shader.Find("Hidden/Internal-Colored"));
 
-            List<Vertex2> vertices = new List<Vertex2>();
 
             Random.InitState(seed);
             for (int i = 0; i < NumberOfVertices; i++)
@@ -40,6 +42,36 @@ namespace HullDelaunayVoronoi
             voronoi = new VoronoiMesh2();
             voronoi.Generate(vertices);
 
+            StartCoroutine(ShiftPoints());
+
+        }
+
+        IEnumerator ShiftPoints()
+        {
+            WaitForSeconds waitTime = new WaitForSeconds(0.01f);
+            while (true)
+            {
+                yield return waitTime;
+
+                foreach (Vertex2 v in vertices)
+                {
+                    v.X += 0.1f * Random.Range(-1.0f, 1.0f);
+                    v.Y += 0.1f * Random.Range(-1.0f, 1.0f);
+                }
+
+                //voronoi = new VoronoiMesh2();
+            }
+        }
+
+        private void Update()
+        {
+
+            foreach (Vertex2 v in vertices)
+            {
+                v.X = size * Random.Range(-1.0f, 1.0f);
+                v.Y = size * Random.Range(-1.0f, 1.0f);
+            }
+            voronoi.Generate(vertices);
         }
 
         private void OnPostRender()
@@ -86,9 +118,10 @@ namespace HullDelaunayVoronoi
 
             foreach (DelaunayCell<Vertex2> cell in voronoi.Cells)
             {
-                if (!InBound(cell.CircumCenter)) continue;
+                if (!InBound(cell.Simplex.Vertices[0])) continue;
 
-                DrawPoint(cell.CircumCenter);
+                DrawPoint(cell.Simplex.Vertices[0]);
+                DrawPoint(cell.Simplex.Vertices[1]);
             }
 
             GL.End();

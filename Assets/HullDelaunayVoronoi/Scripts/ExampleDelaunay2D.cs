@@ -20,12 +20,12 @@ namespace HullDelaunayVoronoi
 
         private Material lineMaterial;
 
+        List<Vertex2> vertices = new List<Vertex2>();
+
         private void Start()
         {
 
             lineMaterial = new Material(Shader.Find("Hidden/Internal-Colored"));
-
-            List<Vertex2> vertices = new List<Vertex2>();
 
             Random.InitState(seed);
             for (int i = 0; i < NumberOfVertices; i++)
@@ -39,6 +39,17 @@ namespace HullDelaunayVoronoi
             delaunay = new DelaunayTriangulation2();
             delaunay.Generate(vertices);
 
+        }
+
+        private void Update()
+        {
+
+            foreach (Vertex2 v in vertices)
+            {
+                v.X = size * Random.Range(-1.0f, 1.0f);
+                v.Y = size * Random.Range(-1.0f, 1.0f);
+            }
+            delaunay.Generate(vertices);
         }
 
         private void OnPostRender()
