@@ -27,6 +27,9 @@ namespace HullDelaunayVoronoi
 
         List<Vertex2> OGvertices = new List<Vertex2>();
 
+        private BSplineGenerator splineGenerator;
+        private float[] initialTOffset;
+
         public float speed = 1;
         public bool showDelaunay;
         public bool showVoronoi;
@@ -38,15 +41,24 @@ namespace HullDelaunayVoronoi
             lineMaterial = new Material(Shader.Find("Hidden/Internal-Colored"));
 
             Random.InitState(seed);
+
+            initialTOffset = new float[NumberOfVertices];
+
+            splineGenerator = new BSplineGenerator(2, size);
+
             for (float i = 0; i < NumberOfVertices; i++)
             {
-                float x = Random.Range(-1.0f, 1.0f);
-                float y = size * Random.Range(-1f, 1f);
+                //float x = Random.Range(-1.0f, 1.0f);
+                //float y = size * Random.Range(-1f, 1f);
 
                 //float x = ((i / (float)NumberOfVertices) * 2f - 1f);
                 //float y = size * Mathf.Pow(Mathf.Pow(Mathf.Cos(Mathf.Exp(x)), 2) - Mathf.Pow(x, 4), 1f/3f);
                 //float y = x;
                 //Debug.Log(x + ", " + y);
+                float tOffset = ((float)i / NumberOfVertices) * 2;
+                initialTOffset[(int)i] = tOffset;
+                float x = splineGenerator.getPostionFromSpline(tOffset).x;
+                float y = splineGenerator.getPostionFromSpline(tOffset).y;
 
 
                 vertices.Add(new Vertex2(size * x, y));
@@ -55,15 +67,6 @@ namespace HullDelaunayVoronoi
 
             delaunay = new DelaunayTriangulation2();
             delaunay.Generate(vertices);
-
-            //foreach(DelaunayCell<Vertex2> cell in delaunay.Cells)
-            //{
-            //    Debug.Log(" ");
-            //    foreach (Vertex2 v in cell.Simplex.Vertices)
-            //    {
-            //        Debug.Log(v.X + ", " + v.Y);
-            //    }
-            //}
 
             GenerateVoronoiFromDelaunay(delaunay);
 
@@ -97,7 +100,7 @@ namespace HullDelaunayVoronoi
             }
             while (true)
             {
-                t += Time.deltaTime * speed;
+                t += Time.fixedDeltaTime * speed;
                 //foreach (Vertex2 v in vertices)
                 //{
                 //    v.X += 0.01f;
@@ -110,17 +113,23 @@ namespace HullDelaunayVoronoi
                     Vertex2 ogV = OGvertices[i];
                     float offset = offsets[i];
 
-                    //v.X = ogV.X + (Mathf.Repeat(t, 100)/100f * 2f -1f);
+                    //v.X = ogV.X + (Mathf.Repeat(t, 100) / 100f * 2f - 1f);
 
-                    //float x = v.X/size;
+                    //float x = v.X / size;
                     //v.Y = size * (Mathf.Pow(Mathf.Pow(Mathf.Cos(Mathf.Exp(x)), 2) - Mathf.Pow(x, 4), 1f / 3f));
 
-                    v.X = ogV.X + Mathf.Cos(t + offset);
-                    v.Y -= 0.01f * speed;
-                    if (v.Y < -size)
-                    {
-                        v.Y = size;
-                    }
+                    //v.X = ogV.X + Mathf.Cos(t + offset);
+                    //v.Y = ogV.Y + Mathf.Sin(t+offset);
+
+                    //v.Y -= 0.01f * speed;
+                    //if (v.Y < -size)
+                    //{
+                    //    v.Y = size;
+                    //}
+
+                    v.X = splineGenerator.getPostionFromSpline(t + initialTOffset[i]).x;
+                    v.Y = splineGenerator.getPostionFromSpline(t + initialTOffset[i]).y;
+                    //v.X += 0.01f;
                 }
 
                 delaunay.Generate(vertices);
@@ -170,12 +179,6 @@ namespace HullDelaunayVoronoi
                 }
             }
 
-            GL.Color(Color.cyan);
-            foreach (DelaunayCell<Vertex2> cell in delaunay.Cells)
-            {
-                DrawCellVectors(cell);
-            }
-
             GL.End();
 
             // DRAW VORONOI LINES
@@ -186,29 +189,34 @@ namespace HullDelaunayVoronoi
 
             if (showVoronoi)
             {
-                foreach (VoronoiRegion<Vertex2> region in voronoi.Regions)
+                GL.Color(Color.green);
+                foreach (DelaunayCell<Vertex2> cell in delaunay.Cells)
                 {
-                    bool draw = true;
-
-                    foreach (DelaunayCell<Vertex2> cell in region.Cells)
-                    {
-                        if (!InBound(cell.CircumCenter))
-                        {
-                            //draw = false;
-                            //break;
-                        }
-                    }
-
-                    if (!draw) continue;
-
-                    foreach (VoronoiEdge<Vertex2> edge in region.Edges)
-                    {
-                        Vertex2 v0 = edge.From.CircumCenter;
-                        Vertex2 v1 = edge.To.CircumCenter;
-
-                        DrawLine(v0, v1);
-                    }
+                    DrawCellVectors(cell);
                 }
+                //foreach (VoronoiRegion<Vertex2> region in voronoi.Regions)
+                //{
+                //    bool draw = true;
+
+                //    foreach (DelaunayCell<Vertex2> cell in region.Cells)
+                //    {
+                //        if (!InBound(cell.CircumCenter))
+                //        {
+                //            //draw = false;
+                //            //break;
+                //        }
+                //    }
+
+                //    if (!draw) continue;
+
+                //    foreach (VoronoiEdge<Vertex2> edge in region.Edges)
+                //    {
+                //        Vertex2 v0 = edge.From.CircumCenter;
+                //        Vertex2 v1 = edge.To.CircumCenter;
+
+                //        DrawLine(v0, v1);
+                //    }
+                //}
             }
 
             GL.End();
@@ -288,10 +296,13 @@ namespace HullDelaunayVoronoi
                     Vertex2 from = edge.From.CircumCenter;
                     Vertex2 to = edge.To.CircumCenter;
 
-                    //DrawLine(from, to);
+                    DrawLine(from, to);
 
-                    Vector2 circumCenterVector = new Vector2(to.X - from.X, to.Y - from.Y);
-                    circumCenterVectors.Add(circumCenterVector);
+                    if ((from.X == cell.CircumCenter.X && from.Y == cell.CircumCenter.Y) || (to.X == cell.CircumCenter.X && to.Y == cell.CircumCenter.Y))
+                    {
+                        Vector2 circumCenterVector = new Vector2(to.X - from.X, to.Y - from.Y);
+                        circumCenterVectors.Add(circumCenterVector);
+                    }
                 }
             }
 
@@ -301,9 +312,17 @@ namespace HullDelaunayVoronoi
             cellVectors.Add(v3);
 
             List<Vector2> extendVectors = new List<Vector2>();
-            List<Vector2> adjacentCenterVectors = new List<Vector2>();
 
-            Vector2 vectorToExtend = cellVectors[2];
+
+            Vector2 minCellVector = cellVectors[0];
+
+            foreach(Vector2 cellVector in cellVectors)
+            {
+                if(cellVector.sqrMagnitude < minCellVector.sqrMagnitude)
+                {
+                    minCellVector = cellVector;
+                }
+            }
             
 
 
@@ -315,10 +334,10 @@ namespace HullDelaunayVoronoi
                 {
                     float crossZ = vec2.x * v.y - vec2.y * v.x;
                     crossZ *= -1f;
-                    if (Mathf.Abs(crossZ) < 0.0001f)
+                    if (Mathf.Abs(crossZ) < 0.01f)
                     {
-                        adjacentCenterVectors.Add(v);
                         correctVector = false;
+                        break;
                     }
                 }
                 if (correctVector)
@@ -327,35 +346,19 @@ namespace HullDelaunayVoronoi
                 }
                 }
 
-
-            //Debug.Log(adjacentCenterVectors.Count);
-
-            bool isoutofSimplex = isCircumCenterInCellSimplex(cell);
+            bool isoutofSimplex = isCircumCenterOutOfCellSimplex(cell);
             foreach (Vector2 v in extendVectors)
             {
                 Vertex2[] potentialLineVertices = CalculateVerticesFromVector2(circumCenter, v);
 
-                bool goodVector;
-
-                Debug.Log("Pos: " + CalcMinAngle(adjacentCenterVectors, v) + ", Neg: " + CalcMinAngle(adjacentCenterVectors, -1f * v));
-                if(CalcMinAngle(adjacentCenterVectors, v) > CalcMinAngle(adjacentCenterVectors, -1f * v))
-                {
-                    goodVector = true;
-                } else
-                {
-                    goodVector=false;
-                }
-
-                Debug.Log(goodVector && isoutofSimplex);
-
                 if (isoutofSimplex)
                 {
                     //Debug.Log("CircumCenter out Simplex");
-                    if (goodVector)
+                    if (!minCellVector.Equals(v))
                     {
                         DrawLine(circumCenter, potentialLineVertices[0]);
                     }
-                    else if(!goodVector)
+                    else
                     {
                         DrawLine(circumCenter, potentialLineVertices[1]);
                     }
@@ -368,21 +371,7 @@ namespace HullDelaunayVoronoi
             }
         }
 
-        private float CalcMinAngle(List<Vector2> compareList, Vector2 v)
-        {
-            float minAngle = 360f;
-            foreach (Vector2 av in compareList)
-            {
-                if (Vector3.Angle(av.normalized, v.normalized) < minAngle)
-                {
-                    minAngle = Vector3.Angle(av.normalized, v.normalized);
-                }
-            }
-            Debug.Log(minAngle);
-            return minAngle;
-        }
-
-        private bool isCircumCenterInCellSimplex(DelaunayCell<Vertex2> cell)
+        private bool isCircumCenterOutOfCellSimplex(DelaunayCell<Vertex2> cell)
         {
             Vertex2 p1 = cell.Simplex.Vertices[0];
             Vertex2 p2 = cell.Simplex.Vertices[1];
@@ -453,29 +442,9 @@ namespace HullDelaunayVoronoi
 
         private Vertex2[] CalculateVerticesFromVector2(Vertex2 initialPos, Vector2 dir)
         {
-            Vector2 vectorPos1 = new Vector2(initialPos.X, initialPos.Y) + dir.normalized * 100f;
-            Vector2 vectorPos2 = new Vector2(initialPos.X, initialPos.Y) + dir.normalized * -100f;
+            Vector2 vectorPos1 = new Vector2(initialPos.X, initialPos.Y) + dir.normalized * size;
+            Vector2 vectorPos2 = new Vector2(initialPos.X, initialPos.Y) + dir.normalized * -size;
 
-            //foreach(DelaunayCell<Vertex2> cell in delaunay.Cells)
-            //{
-            //    Vertex2 circumCenter = cell.CircumCenter;
-
-            //    Vector2 testVector = new Vector2(circumCenter.X - initialPos.X, circumCenter.Y - initialPos.X);
-
-            //   // DrawLine(circumCenter, initialPos);
-
-            //    if(Vector3.Magnitude(Vector3.Cross(testVector.normalized, dir.normalized)) == 0)
-            //    {
-            //        Debug.Log("Found CircumCenter");
-            //        vectorPos1 = new Vector2(circumCenter.X, circumCenter.Y);
-            //    }
-
-            //    if(Vector3.Magnitude(Vector3.Cross(testVector.normalized, dir.normalized* -1f)) == 0)
-            //    {
-            //        Debug.Log("Found CircumCenter");
-            //        vectorPos2 = new Vector2(circumCenter.X, circumCenter.Y);
-            //    }
-            //}
             Vertex2[] ans = { new Vertex2(vectorPos1.x, vectorPos1.y), new Vertex2(vectorPos2.x, vectorPos2.y) };
             return ans;
         }
