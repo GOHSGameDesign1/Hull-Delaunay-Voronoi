@@ -55,7 +55,7 @@ namespace HullDelaunayVoronoi
 
             delaunay = new DelaunayTriangulation2();
             delaunay.Generate(vertices);
-            
+
             //foreach(DelaunayCell<Vertex2> cell in delaunay.Cells)
             //{
             //    Debug.Log(" ");
@@ -91,11 +91,11 @@ namespace HullDelaunayVoronoi
         {
             float t = 0;
             List<float> offsets = new List<float>();
-            for(int i=0;i<vertices.Count; i++)
+            for (int i = 0; i < vertices.Count; i++)
             {
                 offsets.Add(Random.Range(1.0f, 360.0f));
             }
-            while(true)
+            while (true)
             {
                 t += Time.deltaTime * speed;
                 //foreach (Vertex2 v in vertices)
@@ -104,7 +104,7 @@ namespace HullDelaunayVoronoi
                 //    v.Y = 0.1f;
                 //}
 
-                for(int i = 0; i < vertices.Count; i++)
+                for (int i = 0; i < vertices.Count; i++)
                 {
                     Vertex2 v = vertices[i];
                     Vertex2 ogV = OGvertices[i];
@@ -117,7 +117,7 @@ namespace HullDelaunayVoronoi
 
                     v.X = ogV.X + Mathf.Cos(t + offset);
                     v.Y -= 0.01f * speed;
-                    if(v.Y < -size)
+                    if (v.Y < -size)
                     {
                         v.Y = size;
                     }
@@ -237,18 +237,21 @@ namespace HullDelaunayVoronoi
             GL.End();
 
             GL.Begin(GL.QUADS);
-            GL.Color(Color.yellow);
-
-            foreach (DelaunayCell<Vertex2> cell in delaunay.Cells)
+            if (showDelaunay)
             {
-                Simplex<Vertex2> s = cell.Simplex;
-                Vertex2 v1 = new Vertex2((s.Vertices[0].X + s.Vertices[1].X)/2f, (s.Vertices[0].Y + s.Vertices[1].Y)/2f);
-                Vertex2 v2 = new Vertex2((s.Vertices[0].X + s.Vertices[2].X) / 2f, (s.Vertices[0].Y + s.Vertices[2].Y) / 2f);
-                Vertex2 v3 = new Vertex2((s.Vertices[1].X + s.Vertices[2].X) / 2f, (s.Vertices[1].Y + s.Vertices[2].Y) / 2f);
+                GL.Color(Color.yellow);
 
-                DrawPoint(v1);
-                DrawPoint(v2);
-                DrawPoint(v3);
+                foreach (DelaunayCell<Vertex2> cell in delaunay.Cells)
+                {
+                    Simplex<Vertex2> s = cell.Simplex;
+                    Vertex2 v1 = new Vertex2((s.Vertices[0].X + s.Vertices[1].X) / 2f, (s.Vertices[0].Y + s.Vertices[1].Y) / 2f);
+                    Vertex2 v2 = new Vertex2((s.Vertices[0].X + s.Vertices[2].X) / 2f, (s.Vertices[0].Y + s.Vertices[2].Y) / 2f);
+                    Vertex2 v3 = new Vertex2((s.Vertices[1].X + s.Vertices[2].X) / 2f, (s.Vertices[1].Y + s.Vertices[2].Y) / 2f);
+
+                    DrawPoint(v1);
+                    DrawPoint(v2);
+                    DrawPoint(v3);
+                }
             }
 
             GL.End();
@@ -273,9 +276,156 @@ namespace HullDelaunayVoronoi
             Vector2 v2 = new Vector2(m2.X - circumCenter.X, m2.Y - circumCenter.Y);
             Vector2 v3 = new Vector2(m3.X - circumCenter.X, m3.Y - circumCenter.Y);
 
-            DrawLine(m1, circumCenter);
-            DrawLine(m2, circumCenter);
-            DrawLine(m3, circumCenter);
+            //DrawLine(m1, circumCenter);
+            //DrawLine(m2, circumCenter);
+            //DrawLine(m3, circumCenter);
+
+            List<Vector2> circumCenterVectors = new List<Vector2>();
+            foreach (VoronoiRegion<Vertex2> region in voronoi.Regions)
+            {
+                foreach (VoronoiEdge<Vertex2> edge in region.Edges)
+                {
+                    Vertex2 from = edge.From.CircumCenter;
+                    Vertex2 to = edge.To.CircumCenter;
+
+                    //DrawLine(from, to);
+
+                    Vector2 circumCenterVector = new Vector2(to.X - from.X, to.Y - from.Y);
+                    circumCenterVectors.Add(circumCenterVector);
+                }
+            }
+
+            List<Vector2> cellVectors = new List<Vector2>();
+            cellVectors.Add(v2);
+            cellVectors.Add(v1);
+            cellVectors.Add(v3);
+
+            List<Vector2> extendVectors = new List<Vector2>();
+            List<Vector2> adjacentCenterVectors = new List<Vector2>();
+
+            Vector2 vectorToExtend = cellVectors[2];
+            
+
+
+                for (int i = 0; i < cellVectors.Count; i++)
+                {
+                bool correctVector = true;
+                Vector2 vec2 = cellVectors[i];
+                foreach (Vector2 v in circumCenterVectors)
+                {
+                    float crossZ = vec2.x * v.y - vec2.y * v.x;
+                    crossZ *= -1f;
+                    if (Mathf.Abs(crossZ) < 0.0001f)
+                    {
+                        adjacentCenterVectors.Add(v);
+                        correctVector = false;
+                    }
+                }
+                if (correctVector)
+                {
+                    extendVectors.Add(vec2);
+                }
+                }
+
+
+            //Debug.Log(adjacentCenterVectors.Count);
+
+            bool isoutofSimplex = isCircumCenterInCellSimplex(cell);
+            foreach (Vector2 v in extendVectors)
+            {
+                Vertex2[] potentialLineVertices = CalculateVerticesFromVector2(circumCenter, v);
+
+                bool goodVector;
+
+                Debug.Log("Pos: " + CalcMinAngle(adjacentCenterVectors, v) + ", Neg: " + CalcMinAngle(adjacentCenterVectors, -1f * v));
+                if(CalcMinAngle(adjacentCenterVectors, v) > CalcMinAngle(adjacentCenterVectors, -1f * v))
+                {
+                    goodVector = true;
+                } else
+                {
+                    goodVector=false;
+                }
+
+                Debug.Log(goodVector && isoutofSimplex);
+
+                if (isoutofSimplex)
+                {
+                    //Debug.Log("CircumCenter out Simplex");
+                    if (goodVector)
+                    {
+                        DrawLine(circumCenter, potentialLineVertices[0]);
+                    }
+                    else if(!goodVector)
+                    {
+                        DrawLine(circumCenter, potentialLineVertices[1]);
+                    }
+                }
+                else
+                {
+                    //Debug.Log("CircumCenter in Simplex");
+                    DrawLine(circumCenter, potentialLineVertices[0]);
+                }
+            }
+        }
+
+        private float CalcMinAngle(List<Vector2> compareList, Vector2 v)
+        {
+            float minAngle = 360f;
+            foreach (Vector2 av in compareList)
+            {
+                if (Vector3.Angle(av.normalized, v.normalized) < minAngle)
+                {
+                    minAngle = Vector3.Angle(av.normalized, v.normalized);
+                }
+            }
+            Debug.Log(minAngle);
+            return minAngle;
+        }
+
+        private bool isCircumCenterInCellSimplex(DelaunayCell<Vertex2> cell)
+        {
+            Vertex2 p1 = cell.Simplex.Vertices[0];
+            Vertex2 p2 = cell.Simplex.Vertices[1];
+            Vertex2 p3 = cell.Simplex.Vertices[2];
+
+            // Midpoints of simplex lines (COMPONENTS ARE NOT DIVIDED BY 2)
+            Vertex2 m1 = new Vertex2((p1.X + p2.X), (p1.Y + p2.Y));
+            Vertex2 m2 = new Vertex2((p1.X + p3.X), (p1.Y + p3.Y));
+            Vertex2 m3 = new Vertex2((p2.X + p3.X), (p2.Y + p3.Y));
+
+            Vertex2 circumCenter = new Vertex2(cell.CircumCenter.X * 2f, cell.CircumCenter.Y * 2f);
+
+            Vertex2[] comparePoints = { m1, m2, m3, circumCenter };
+
+            Vertex2 maxX = comparePoints[0];
+            Vertex2 maxY = comparePoints[0];
+            Vertex2 minX = comparePoints[0];
+            Vertex2 minY = comparePoints[0];
+
+            for (int i = 0; i < comparePoints.Length; i++)
+            {
+                if (comparePoints[i].X > maxX.X)
+                {
+                    maxX = comparePoints[i];
+                }
+
+                if (comparePoints[i].Y > maxY.Y)
+                {
+                    maxY = comparePoints[i];
+                }
+
+                if(comparePoints[i].X < minX.X)
+                {
+                    minX = comparePoints[i];
+                }
+
+                if (comparePoints[i].Y < minY.Y)
+                {
+                    minY = comparePoints[i];
+                }
+            }
+
+            return (maxX == circumCenter) || (maxY == circumCenter) || (minX == circumCenter) || (minY == circumCenter);
         }
 
         private void DrawSimplexNormalLines(Simplex<Vertex2> s)
@@ -306,26 +456,26 @@ namespace HullDelaunayVoronoi
             Vector2 vectorPos1 = new Vector2(initialPos.X, initialPos.Y) + dir.normalized * 100f;
             Vector2 vectorPos2 = new Vector2(initialPos.X, initialPos.Y) + dir.normalized * -100f;
 
-            foreach(DelaunayCell<Vertex2> cell in delaunay.Cells)
-            {
-                Vertex2 circumCenter = cell.CircumCenter;
+            //foreach(DelaunayCell<Vertex2> cell in delaunay.Cells)
+            //{
+            //    Vertex2 circumCenter = cell.CircumCenter;
 
-                Vector2 testVector = new Vector2(circumCenter.X - initialPos.X, circumCenter.Y - initialPos.X);
+            //    Vector2 testVector = new Vector2(circumCenter.X - initialPos.X, circumCenter.Y - initialPos.X);
 
-               // DrawLine(circumCenter, initialPos);
+            //   // DrawLine(circumCenter, initialPos);
 
-                if(Vector3.Magnitude(Vector3.Cross(testVector.normalized, dir.normalized)) == 0)
-                {
-                    Debug.Log("Found CircumCenter");
-                    vectorPos1 = new Vector2(circumCenter.X, circumCenter.Y);
-                }
+            //    if(Vector3.Magnitude(Vector3.Cross(testVector.normalized, dir.normalized)) == 0)
+            //    {
+            //        Debug.Log("Found CircumCenter");
+            //        vectorPos1 = new Vector2(circumCenter.X, circumCenter.Y);
+            //    }
 
-                if(Vector3.Magnitude(Vector3.Cross(testVector.normalized, dir.normalized* -1f)) == 0)
-                {
-                    Debug.Log("Found CircumCenter");
-                    vectorPos2 = new Vector2(circumCenter.X, circumCenter.Y);
-                }
-            }
+            //    if(Vector3.Magnitude(Vector3.Cross(testVector.normalized, dir.normalized* -1f)) == 0)
+            //    {
+            //        Debug.Log("Found CircumCenter");
+            //        vectorPos2 = new Vector2(circumCenter.X, circumCenter.Y);
+            //    }
+            //}
             Vertex2[] ans = { new Vertex2(vectorPos1.x, vectorPos1.y), new Vertex2(vectorPos2.x, vectorPos2.y) };
             return ans;
         }
@@ -363,7 +513,7 @@ namespace HullDelaunayVoronoi
         {
             float x = v.X;
             float y = v.Y;
-            float s = 0.1f;
+            float s = 0.05f;
 
             GL.Vertex3(x + s, y + s, 0.0f);
             GL.Vertex3(x + s, y - s, 0.0f);

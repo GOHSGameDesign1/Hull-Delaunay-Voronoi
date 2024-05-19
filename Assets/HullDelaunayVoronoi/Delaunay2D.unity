@@ -153,9 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ffc0b7490fe164e8aa6682de7637c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumberOfVertices: 100
-  size: 20
+  NumberOfVertices: 5
+  size: 10
   seed: 0
+  speed: 1
+  showDelaunay: 1
+  showVoronoi: 1
+  showNormals: 0
 --- !u!20 &1266046831
 Camera:
   m_ObjectHideFlags: 0
