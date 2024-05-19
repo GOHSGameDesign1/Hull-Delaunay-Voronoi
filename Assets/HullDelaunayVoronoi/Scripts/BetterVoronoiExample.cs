@@ -31,6 +31,7 @@ namespace HullDelaunayVoronoi
         private float[] initialTOffset;
 
         public float speed = 1;
+        [Range(0,10)]public int numberOfSplines;
         public bool showDelaunay;
         public bool showVoronoi;
         public bool showNormals;
@@ -44,7 +45,7 @@ namespace HullDelaunayVoronoi
 
             initialTOffset = new float[NumberOfVertices];
 
-            splineGenerator = new BSplineGenerator(2, size);
+            splineGenerator = new BSplineGenerator(numberOfSplines, size);
 
             for (float i = 0; i < NumberOfVertices; i++)
             {
@@ -55,7 +56,7 @@ namespace HullDelaunayVoronoi
                 //float y = size * Mathf.Pow(Mathf.Pow(Mathf.Cos(Mathf.Exp(x)), 2) - Mathf.Pow(x, 4), 1f/3f);
                 //float y = x;
                 //Debug.Log(x + ", " + y);
-                float tOffset = ((float)i / NumberOfVertices) * 2;
+                float tOffset = ((float)i / NumberOfVertices) * numberOfSplines;
                 initialTOffset[(int)i] = tOffset;
                 float x = splineGenerator.getPostionFromSpline(tOffset).x;
                 float y = splineGenerator.getPostionFromSpline(tOffset).y;
@@ -346,7 +347,7 @@ namespace HullDelaunayVoronoi
                 }
                 }
 
-            bool isoutofSimplex = isCircumCenterOutOfCellSimplex(cell);
+            bool isoutofSimplex = isCircumCenterOutOfCellSimplex(v1, v2, v3);
             foreach (Vector2 v in extendVectors)
             {
                 Vertex2[] potentialLineVertices = CalculateVerticesFromVector2(circumCenter, v);
@@ -371,50 +372,14 @@ namespace HullDelaunayVoronoi
             }
         }
 
-        private bool isCircumCenterOutOfCellSimplex(DelaunayCell<Vertex2> cell)
+        private bool isCircumCenterOutOfCellSimplex(Vector2 v1, Vector2 v2, Vector3 v3)
         {
-            Vertex2 p1 = cell.Simplex.Vertices[0];
-            Vertex2 p2 = cell.Simplex.Vertices[1];
-            Vertex2 p3 = cell.Simplex.Vertices[2];
+            if(v1.x > 0 && v2.x > 0 && v3.x > 0) { return true; }
+            if (v1.x < 0 && v2.x < 0 && v3.x < 0) { return true; }
+            if (v1.y > 0 && v2.y > 0 && v3.y > 0) { return true; }
+            if (v1.y < 0 && v2.y < 0 && v3.y < 0) { return true; }
 
-            // Midpoints of simplex lines (COMPONENTS ARE NOT DIVIDED BY 2)
-            Vertex2 m1 = new Vertex2((p1.X + p2.X), (p1.Y + p2.Y));
-            Vertex2 m2 = new Vertex2((p1.X + p3.X), (p1.Y + p3.Y));
-            Vertex2 m3 = new Vertex2((p2.X + p3.X), (p2.Y + p3.Y));
-
-            Vertex2 circumCenter = new Vertex2(cell.CircumCenter.X * 2f, cell.CircumCenter.Y * 2f);
-
-            Vertex2[] comparePoints = { m1, m2, m3, circumCenter };
-
-            Vertex2 maxX = comparePoints[0];
-            Vertex2 maxY = comparePoints[0];
-            Vertex2 minX = comparePoints[0];
-            Vertex2 minY = comparePoints[0];
-
-            for (int i = 0; i < comparePoints.Length; i++)
-            {
-                if (comparePoints[i].X > maxX.X)
-                {
-                    maxX = comparePoints[i];
-                }
-
-                if (comparePoints[i].Y > maxY.Y)
-                {
-                    maxY = comparePoints[i];
-                }
-
-                if(comparePoints[i].X < minX.X)
-                {
-                    minX = comparePoints[i];
-                }
-
-                if (comparePoints[i].Y < minY.Y)
-                {
-                    minY = comparePoints[i];
-                }
-            }
-
-            return (maxX == circumCenter) || (maxY == circumCenter) || (minX == circumCenter) || (minY == circumCenter);
+            return false;
         }
 
         private void DrawSimplexNormalLines(Simplex<Vertex2> s)
